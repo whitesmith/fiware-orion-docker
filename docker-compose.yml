@@ -1,0 +1,13 @@
+db:
+  image: mongo
+  ports:
+    - 27017
+
+orion:
+  image: whitesmith/fiware-orion
+  command: -dbhost db:27017
+  ports:
+    - "1026:1026"
+    - "5683:5683/udp"
+  links:
+    - db
