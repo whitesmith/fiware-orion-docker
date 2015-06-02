@@ -9,20 +9,13 @@ This image uses [whitesmith/fiware-orion-deps-docker][] as its parent image.
 Since it is not available at the [Docker Hub][] (**yet**), you must build it
 manually. Its repo contains the command to do it.
 
+For orchestrating the creation of both containers (Orion and MongoDB), a
+`docker-compose.yml` is provided. If you choose to use this approach, you'll
+need to install [Docker Compose][] as well ([installation instructions](https://docs.docker.com/compose/install/)).
+
 
 ## Usage
-Just run
-
-```
-  docker-compose up
-```
-
-and you'll have a running Orion instance on port `1026` (HTTP) of your Docker
-host, as well as on port `5683/udp` (COAP) <sup>**not tested!**</sup>.
-
-
-## Manual build
-If you would like to build it manually, just run
+If using this for the first time, run
 
 ```
   docker build -t whitesmith/fiware-orion:latest .
@@ -30,6 +23,15 @@ If you would like to build it manually, just run
 
 and it will download and build the latest Orion version and tag the resulting
 image as `whitesmith/fiware-orion:latest`.
+
+From now on, just
+
+```
+  docker-compose up
+```
+
+and you'll have a running Orion instance on port `1026` (HTTP) of your Docker
+host, as well as on port `5683/udp` (COAP) <sup>**not tested!**</sup>.
 
 
 [FIWARE]: http://www.fiware.org/
@@ -43,3 +45,4 @@ image as `whitesmith/fiware-orion:latest`.
 [whitesmith/fiware-orion-deps-docker]: https://github.com/whitesmith/fiware-orion-deps-docker
 
 [Docker Hub]: https://registry.hub.docker.com/
+[Docker Compose]: https://docs.docker.com/compose/
